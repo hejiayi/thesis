@@ -1,0 +1,503 @@
+%# -*- coding: utf-8-unix -*-
+%%==================================================
+%% chapter02.tex for SJTU Master Thesis
+%% Encoding: UTF-8
+%%==================================================
+
+\chapter{船波基本理论}
+\label{chap:shipwav}
+
+\section{船舶兴波问题的数学提法}
+\label{sec:mathsform}
+
+考虑船长为$L$的船以航速$V$在无限深广的静水中直线航行时的兴波。假定流体为均质、
+不可压、无粘性的理想流体；假定流动有势无旋；假定船舶兴波为微幅波，即波幅与波长
+相比为小量；忽略表面张力的影响。观察流动的参考系是固结在船体上与船体一起运动的
+伽利略参考系$\mathbf{X}=(X,Y,Z)$，时间为$T$。流场速度势$\bar{\Phi}(\mathbf{X},T)$可
+看作均匀来流的速度势$(-VX,0,0)$与扰动速度势$\Phi(\mathbf{X},T)$的叠加，
+将未扰动的自由面定义为$Z=0$且$Z$轴竖直向上，$X$轴与船的航向一致且指向船首。
+
+考察自由面情况。设自由面方程为$Z=E(X,Y,T)$，则运动学条件为
+\begin{equation*}
+  E_X\bar{\Phi}_X+E_Y\bar{\Phi}_Y+E_T-\bar{\Phi}_Z=0
+\end{equation*}
+将$\bar{\Phi}=-VX+\Phi$代入上式得
+\begin{equation*}
+  VE_X=E_T+E_X\Phi_X+E_Y\Phi_Y-\Phi_Z
+\end{equation*}
+忽略二阶小量$E_X\Phi_X$和$E_Y\Phi_Y$得
+\begin{equation}
+  VE_X=E_T-\Phi_Z
+  \label{eq:fskinem}
+\end{equation}
+式\eqref{eq:fskinem}是线性化的非定常运动自由面运动学条件。
+对波面以及远前方自由面应用非定常伯努利方程，有
+\begin{equation*}
+  \frac{\partial\bar{\Phi}}{\partial T}+\frac{P}{\rho}+\frac{1}{2}(\bar{\Phi}_X^2
+  +\bar{\Phi}_Y^2+\bar{\Phi}_Z^2)+gE
+  =\frac{P_a}{\rho}+\frac{1}{2}V^2
+\end{equation*}
+将$\bar{\Phi}_X=-V+\Phi_X$代入上式，并利用等压条件，可得
+\begin{equation*}
+  gE=V\Phi_X-\frac{1}{2}(\Phi_X^2+\Phi_Y^2+\Phi_Z^2)-\Phi_T
+\end{equation*}
+略去二阶小量$(\Phi_X^2+\Phi_Y^2+\Phi_Z^2)/2$，可得
+\begin{equation}
+  gE=V\Phi_X-\Phi_T
+  \label{eq:fsdynam}
+\end{equation}
+式\eqref{eq:fsdynam}是线性化的非定常运动自由面动力学条件。
+联立\eqref{eq:fskinem}和\eqref{eq:fsdynam}消去波高$E$，可得
+\begin{equation}
+  [g\partial_Z+(V\partial_X-\partial_T)^2]\Phi=0
+  \label{eq:fscombin}
+\end{equation}
+式\eqref{eq:fscombin}是非定常运动线性自由面条件。以$U$，$U/g$，$U^2/g$，
+$U^3/g$为特征速度、时间、长度、速度势，定义无因次化的物理量
+\begin{equation*}
+  t=Tg/U,\quad\mathbf{x}=\mathbf{X}g/U^2,\quad\phi=\Phi g/U^3
+\end{equation*}
+作为无因次化的时间、坐标、速度势。基于这些无因次化量的线性自由面条件为
+%
+%%用船长$L$以及航速$V$定义无因次化的坐标系
+%%$\mathbf{x}\equiv\mathbf{X}/L}$、扰动速度势$\phi=\Phi/VL$、速度场
+%%$\nabla_\mathbf{x}\equiv(\phi_x,\phi_y,\phi_z)\equiv(\Phi_X,\Phi_Y,\Phi_Z)/V$
+%%以及时间$t=TV/L$。则式\eqref{eq:fscombin}变为无因次形式
+\begin{equation}
+  [\partial_z+(\partial_x-\partial_t)^2]\phi=0
+  \label{eq:fsnondim}
+\end{equation}
+
+在本论文中，我们关心稳定后的流场。众所周知，为了解的确定性，定常的自由面重力流
+需要引入辐射条件。替代辐射条件的一个简单方法是将定常流作为辅助参数$\epsilon$
+趋向零时随时间而变的流场的极限。时变流场的速度势为$\varphi(\mathbf{x},t)=\phi(\mathbf{x})\exp(\epsilon t)$。于是将原问题转化为传统的初边值问题（初始条件为当$t\to-\infty$时，$\varphi=0$，$\varphi_t=0$）。与空间速度势$\phi(\mathbf{x})$对应的自由面条件为
+\begin{equation*}
+  [\partial_z+(\partial_x-\epsilon)^2]\phi=0
+\end{equation*}
+或等价形式
+\begin{equation*}
+  \phi_z+\phi_{xx}-2\epsilon\phi_x+\epsilon^2\phi=0
+\end{equation*}
+当忽略上式中的项$\epsilon^2\phi$时---这对于$\epsilon\ll1$来说是合理的---自由面条件
+与通常使用的Rayleigh人工粘性得出的自由面条件相同。
+
+则无因次化形式船舶兴波的边值问题为
+%%
+\begin{equation}\label{eq:govrn}
+\left\{ 
+  \begin{array}{l}
+  \nabla^2_{\mathbf{x}}\phi\equiv\phi_{xx}+\phi_{yy}+\phi_{zz}=0 \\
+  F^2\phi_{xx}+\phi_z=0,\quad\mathbf{x}\in\Sigma^F\\
+  \nabla\phi\cdot\mathbf{n}=n_x, \quad \mathbf{x}\in\Sigma^H\\
+  \phi_z\rightarrow0, \quad z\rightarrow -\infty\\
+  \phi\rightarrow0, \quad h\equiv\sqrt{x^2+y^2}\rightarrow\infty
+\end{array} \right.
+\end{equation}
+%%
+这里，$\Sigma^H$代表船体平均湿表面积，$\Sigma^F$代表位于船体表面$\Sigma^H$之外
+的平均（未扰动）自由面$z=0$。求解边值问题\eqref{eq:govrn}可得船舶静水兴波速度势，
+解决该问题目前常用格林函数法，该方法将在下一章介绍。
+
+\section{平面前进波}
+\label{sec:freewav}
+
+船静水兴波速度势可分为局部流动部分 (local flow component) 和波动部分 (wave 
+component)。其中局部流动部分随离开船体距离的增加迅速衰减，而波动部分衰减较慢。
+令$\mathbf{u}^L$和$\mathbf{u}^W$分别是与局部流动和波动部分对应的流速，则
+\begin{equation}
+\mathbf{u}^W\sim 1/\sqrt{h},\,\mathbf{u}^L\sim 1/h^3, \quad\text{当}\,h\rightarrow\infty
+  \label{eq:uWuL}
+\end{equation}
+因此，在离开船体的一小段距离之后局部流动速度$\mathbf{u}^L$相比波动部分$\mathbf{u}^W$
+可忽略不计，离开船体的外传波除了波幅受船体影响之外，几乎不受船体的影响。
+这些离开船体一段距离的波称为自由波。船体表面条件决定了波幅的大小，但是除了在船体
+附近很小的区域内，不影响自由波的传播。
+
+自由波满足的控制方程和边界条件为
+\begin{equation}\label{eq:govrnfreewav}
+\left\{ 
+\begin{array}{l}
+  \phi_{xx}+\phi_{yy}+\phi_{zz}=0,\quad z\le0 \\
+  F^2\phi_{xx}+\phi_z=0,\quad z=0\\
+  \phi_z\rightarrow0, \quad z\rightarrow -\infty\\
+  \phi\rightarrow0, \quad h\equiv\sqrt{x^2+y^2}\rightarrow\infty
+\end{array} \right.
+\end{equation}
+
+可以验证，如下基本初等波
+\begin{equation}
+  W(\mathbf{x})=\mathrm{e}^{kz+\mathrm{i}(\alpha x+\beta y)}
+  \label{eq:elewav}
+\end{equation}
+满足\eqref{eq:govrnfreewav}中的控制方程、海底边界条件。这里，
+\begin{equation}
+  k=\sqrt{\alpha^2+\beta^2}
+  \label{eq:wavnumber}
+\end{equation}
+当满足
+\begin{equation}
+  \Delta(\alpha,\beta;F)\equiv F^2\alpha^2-k=0
+  \label{eq:disper}
+\end{equation}
+\eqref{eq:elewav}还满足自由面边界条件。
+方程$\Delta=0$称为色散关系，函数$\Delta(\alpha,\beta;F)$是色散函数。色散关系
+在$(\alpha,\beta)$平面内形成的曲线称为色散曲线。
+
+为下文的叙述做准备，定义如下符号
+\begin{eqnarray}
+  &\mathbf{k}\equiv(\alpha,\beta)\equiv k(\cos\gamma,\sin\gamma),\quad \nabla_{\matbf{k}}\equiv\left(\frac{\partial}{\partial\alpha},\frac{\partial}{\partial\beta}\right) \label{eq:kbfdef} \\
+  &\mathbf{h}\equiv(x,y)\equiv h(\cos\psi,\sin\psi),\quad
+  \nabla_{\mathbf{h}}\equiv\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right) \label{eq:hbfdef}\\
+  &\theta\equiv\alpha x+\beta y\equiv\mathbf{k}\cdot\mathbf{h}\equiv kh\cos(\gamma-\psi) \label{eq:thetadef}
+\end{eqnarray}
+$k$，$\alpha$和$\beta$是无因次化的波数。$k$，$\alpha$，$\beta$以及无因次化的波长
+$\lambda\equiv 2\pi/k$与有量纲的波数$K$, $K^x$, $K^y$以及波长$\Lambda$的关系为
+\begin{equation}
+  (k,\alpha,\beta)\equiv(K,K^x,K^y)L,\quad \lambda=\Lambda/L
+  \label{eq:klambdim}
+\end{equation}
+
+色散关系\eqref{eq:disper}定义了两条色散曲线，这两条曲线关于$\alpha=0$以及$\beta=0$
+对称。色散关系\eqref{eq:disper}可以表示成如下等价形式
+\begin{equation}
+  \alpha^2_F=k_F,\quad\text{这里}\quad k_F\equiv\sqrt{\alpha^2_F+\beta^2_F}
+  ,\,(\alpha_F,\beta_F,k_F)\equiv F^2(\alpha,\beta,k)
+  \label{eq:disper1}
+\end{equation}
+或参数方程形式
+\begin{equation}
+  \begin{array}{l}
+    \alpha_F=\pm\sqrt{1+q^2},\,\beta_F=q\sqrt{1+q^2}\\
+    k_F=1+q^2,\quad\text{这里}\quad -\infty<q<\infty
+  \end{array}
+  \label{eq:disper2}
+\end{equation}
+$\bullet$插入色散曲线。
+
+由色散关系\eqref{eq:disper}得，波长$\lambda\equiv 2\pi/k$为
+\begin{equation}
+  \lambda=2\pi F^2\cos^2\gamma\le2\pi F^2\equiv \lambda^{\max}
+  \label{eq:wavlendef}
+\end{equation}
+
+\eqref{eq:wavlendef}表明，航速为$V$的船产生的波长$\Lambda$的范围为
+\begin{equation}
+  \Lambda\le\Lambda^{\max}\equiv2\pi V^2/g
+  \label{eq:Wavlen}
+\end{equation}
+波长最大的波浪传播方向为船的航向。
+因此，当弗洛德数$F\equiv V/\sqrt{gL}$满足
+\begin{equation}
+  F>1/\sqrt{2\pi}\approx0.4
+  \label{eq:hullspd}
+\end{equation}
+时，最大波长$\Lambda^{\max}$超过船长$L$。
+
+波峰线是相位$\theta$的等值线。波峰的前进方向为
+\begin{equation}
+  \nabla_{\mathbf{h}}\theta\equiv(\partial\theta/\partial x,\partial\theta/\partial y)=(\alpha,\beta)\equiv k(\cos\gamma,\sin\gamma)\equiv\mathbf{k}
+  \label{eq:dtheta}
+\end{equation}
+波峰前进的速度，即相速度$\mathbf{v}_p$为
+\begin{equation}
+  \mathbf{v}_p\equiv(v_p^x,v_p^y)=v_p(\cos\gamma,\sin\gamma)\equiv 
+  v_p\frac{\mathbf{k}}{k}
+  \label{eq:vp}
+\end{equation}
+由于对应每一波峰线的相位总是等于一个固定常数，则
+\begin{equation}
+  \frac{\mathrm{d}\theta}{\mathrm{d}t}=\alpha\frac{\mathrm{d}x}{\mathrm{d}t}
+  +\beta\frac{\mathrm{d}y}{\mathrm{d}t}=\alpha v_p^x+\beta v_p^y=kv_p=0
+  \label{eq:dthetadt}
+\end{equation}
+由此可得$v_p=0$。这表明从固结在船体上的伽利略坐标系观察船的静水兴波，波形是定常的。
+
+取空间固定坐标系$(x',y',z')$，并假设$t=0$时两坐标系重合。从而此二坐标系有如下
+关系
+\begin{equation}
+  x'=x+t;\,y'=y;z'=z
+  \label{eq:xtrans}
+\end{equation}
+则空间固定坐标系中的相位$\theta'$为
+\begin{equation}
+  \theta'=\alpha(x'-t)+\beta y'
+  \label{eq:thetafix}
+\end{equation}
+由$\mathrm{d}\theta'/\mathrm{d}t=0$可得空间固定坐标系中的相速度$v'_p$
+\begin{equation}
+  v'_p=\frac{\alpha}{k}=\cos\gamma
+  \label{eq:vpfix}
+\end{equation}
+
+波群速度为
+\begin{equation}
+  \mathbf{v_g}\equiv(v_g^x,v_g^y)=\frac{1}{2}(\cos^2\gamma,\sin\gamma\cos\gamma)-(1,0)
+  \label{eq:vg}
+\end{equation}
+\eqref{eq:vg}中的$(1,0)$来源于我们将坐标系取为固结在船体上跟船一起运动的
+伽利略坐标系。
+我们有
+\begin{equation}
+  \left\{
+    \begin{array}{r}
+      -v_g^x \\
+      v_g^y
+    \end{array}
+  \right\}
+  =\frac{1}{2}\left\{
+    \begin{array}{l}
+    1+\sin^2\gamma\\
+    \sin\gamma\cos\gamma
+  \end{array}
+\right\}
+\quad\text{这里}\quad v_g=\frac{1}{2}\sqrt{1+3\sin^2\gamma}
+\label{eq:vg2}
+\end{equation}
+
+
+波群速度在大地坐标系下为
+\begin{equation}
+  \mathbf{v'_g}\equiv(v_g^x+1,v_g^y)
+  \label{eq:vgtrans}
+\end{equation}
+
+由\eqref{eq:vg}和\eqref{eq:vgtrans}得，
+\begin{equation}
+  \mathbf{v'_g}\equiv v'_g(\cos\gamma,\sin\gamma)
+  \label{eq:vgfixed}
+\end{equation}
+由\eqref{eq:vpfix}可知，这里$v'_g=v'_p/2$。
+表明在空间固定坐标系中观察，波群速度$\mathbf{v'_g}$与相速度$\mathrm{v'_p}$
+共线，且在数值上等于相速度的一半。但是在随体坐标系中，两者并不共线。
+
+
+
+
+
+
+\section{初始条件和远场条件}
+\label{sec:initfar}
+
+满足色散关系\eqref{eq:disper}的波函数\eqref{eq:elewav}是满足
+\eqref{eq:govrnfreewav}中的Laplace方程、自由面边界条件、海底条件的基本解。
+因此这些基本解在由\eqref{eq:disper}定义的色散曲线上的叠加也满足Laplace
+方程和这些边界条件，即
+\begin{equation}
+  \phi^W(\mathbf{x})=\sum_{\Delta=0}\int_{\Delta=0}\mathrm{d}s\,a^\phi
+  W(\mathbf{x},\alpha,\beta)\quad\text{这里}\quad (\alpha,\beta)\in\Delta=0
+  \label{eq:wavsum}
+\end{equation}
+这里，求和$\Sigma$遍历所有的色散曲线，点$(\alpha,\beta)$是色散曲线上的点，
+$W(\mathbf{x},\alpha,\beta)$是基本波函数\eqref{eq:elewav}。
+这里$\mathrm{d}s$是色散曲线上的弧长微元，$a^\phi$是一般化的（未知的）波幅函数。
+\eqref{eq:wavsum}假定的色散曲线是通过以弧长$s$为参数的参数方程定义的。
+然而，其他用来表示色散曲线的参数也可以使用。
+
+因此，离开船体一段距离的自由波及其速度势$\phi^W(\mathbf{x})$可以表示为基本波函数
+在色散曲线\eqref{eq:disper}上的一维Fourier叠加。然而，由\eqref{eq:elewav}定义
+的波函数$W$不满足初始条件。因此，Fourier叠加\eqref{eq:wavsum}无法令人满意地代表
+自由波。比如，这种表示方式无法排除向船前方传播的波。正确的表示方式需要考虑初始条件。
+下面将给出满足初始条件和\eqref{eq:govrnfreewav}中的远场条件的基本波。
+
+满足初始条件和远场条件的Fourier叠加形式为
+\begin{equation}
+  \phi^W(\mathbf{x})=\sum_{\Delta=0}\int_{\Delta=0}\mathrm{d}s\,a^\phi
+  H(\sigma^\Delta,\sigma^\theta)
+  W(\mathbf{x},\alpha,\beta)\quad\text{这里}\quad (\alpha,\beta)\in\Delta=0
+  \label{eq:wavsumm2}
+\end{equation}
+这里$\sigma^\Delta$和$\sigma^\theta$为
+\begin{eqnarray}
+  &\sigma^\Delta\equiv-\mathrm{sign}(\alpha)\label{eq:sigd}\\
+  &\sigma^\theta\equiv\mathrm{sign}(\theta)\equiv\mathrm{\cos(\gamma-\psi)}
+  \equiv\mathrm{sign}(\alpha x+\beta y) \label{eq:sigtheta}
+\end{eqnarray}
+$H(\cdot)$为单位阶跃函数。由\eqref{eq:wavsumm2}，\eqref{eq:sigd}和\eqref{eq:sigtheta}
+得
+\begin{equation}
+  \left\{
+    \begin{array}{l}
+      \psi-\pi/2<\gamma<\psi+\pi/2\\
+      \psi+\pi/2<\gamma<\psi+3\pi/2
+    \end{array}
+  \right\}
+  \quad\text{如果}\quad
+  \left\{
+    \begin{array}{l}
+      0<\sigma^\Delta\\
+      \sigma^\Delta<0
+    \end{array}
+  \right\}
+  \label{eq:allowed}
+\end{equation}
+\eqref{eq:allowed}定义了色散曲线中允许被叠加的部分。这个被叠加的部分是定义在傅里叶
+平面$(\alpha,\beta)$中，依赖于物理平面$(x,y)$中角度$\psi$。
+
+在按\eqref{eq:allowed}方式限制的色散曲线$\Delta=0$上进行Fourier叠加的
+表达式\eqref{eq:wavsum}与表达式\eqref{eq:wavsumm2}是等价的。表达式\eqref{eq:wavsumm2}
+满足\eqref{eq:govrnfreewav}中的Laplace方程、远场边界条件、自由面边界条件和海底
+边界条件，也满足初始条件。因此，表达式\eqref{eq:wavsumm2}可以代表由船体产生的
+离开船体一小段距离之后传播的自由波。式\eqref{eq:wavsumm2}中一般化的波幅函数只能
+通过船体表面边界条件确定。
+
+\section{远场波}
+\label{sec:farfieldiwav}
+
+在远场$h\gg1$，自由波表达式\eqref{eq:wavsumm2}可以进行进行简化。考虑$h\gg1$可以
+将傅里叶平面$(\alpha,\beta)$中由色散关系定义的色散曲线上的点与物理空间中的远场波
+联系起来。远场波形可以通过色散函数由简单的解析式确定。
+
+考虑自由波\eqref{eq:wavsumm2}在远场$h\gg 1$的情况。Fourier表达式\eqref{eq:wavsumm2}
+表示成
+\begin{equation}
+  \phi^W(\mathbf{x})=\sum_{\Delta=0}\int_{\Delta=0}\mathrm{d}s\,\hat{a}\mathrm{e}
+  ^{\mathrm{i}h\varphi}
+  \label{eq:wavsum3}
+\end{equation}
+这里$h\equiv\sqrt{\xi^2+\eta^2}$，其中$(\xi,\eta)$是以$V^2/g$无因次化的坐标系。
+$\hat{a}\equiv\hat{a}(s)$和$\varphi=\varphi(s)$是色散曲线$\Delta=0$的弧长$s$
+的函数，定义为
+\begin{eqnarray}
+  &\hat{a}\equiv H(\sigma^\Delta\sigma^\theta)a^\phi\mathrm{e}^{kz}
+  \label{eq:aphiaz}\\
+  &\varphi\equiv\frac{\theta}{h}\equiv\alpha\cos\psi+\beta\sin\psi\equiv k\cos(\gamma-\psi)
+  \label{eq:phidef}
+\end{eqnarray}
+这里，$\theta$是由\eqref{eq:thetadef}定义的相位函数。
+积分\eqref{eq:wavsum3}中的三角函数$\mathrm{e}^{\mathrm{i}h\varphi}}$是随$s$
+振动的函数。振动周期由关系式$h\varphi_s\delta s=2\pi$确定，即
+\begin{equation}
+  \delta s=\frac{2\pi}{h\varphi_s}
+  \label{eq:osciperiod}
+\end{equation}
+其中$\varphi_s=\mathrm{d}\varphi/\mathrm{d}s$是相位函数$\varphi(s)$在色散曲线
+$\Delta=0$上点$s$处的导数。因此，振动周期$\delta s$是弧长$s$的函数。
+式\eqref{eq:osciperiod}表明随着$h$的增加，局部振动周期$\delta s$变小，三角函数
+$\mathrm{e}^{\mathrm{i}h\varphi}$振动更加快速。因此三角函数$\mathrm{e}^{\mathrm{i}h\varphi}$在远场$h\gg1$是快速振动的函数，除了在满足$\varphi_s(s)=0$的点$s$处，这样的
+点称为驻相点。在远场$h\gg1$，三角函数$\mathrm{e}^{\mathrm{i}h\varphi}$快速振动的
+部分对积分\eqref{eq:wavsum3}的贡献相互抵消，因此对式\eqref{eq:wavsum3}的主要贡献
+来自驻相点$\varphi_z=0$。
+
+由色散关系\eqref{eq:disper}、相位函数\eqref{eq:phidef}和$\varphi_s=0$得
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d}\gamma}\left(
+  \frac{\cos\gamma\cos\psi+\sin\gamma\sin\psi}{F^2\cos^2\gamma}\right)=0
+  \label{eq:phiz=0}
+\end{equation}
+由此可得
+\begin{equation}
+  \tan\psi*\equiv\frac{y}{x}=\frac{\tan\gamma}{1+2\tan^2\gamma}
+  \label{eq:statfaz1}
+\end{equation}
+
+%
+% 
+由\eqref{eq:disper2}和\eqref{eq:phidef}得，相位函数$\varphi$、导函数
+$\varphi'\equiv d\varphi/dq$和$\varphi''\equiv d^2\varphi/dq^2$为
+%
+\begin{subequations}\label{eq:faz}\begin{eqnarray}
+&&\varphi\equiv(q\sin\hspace{-0.1em}\psi-\cos\hspace{-0.1em}\psi)
+\sqrt{1\hspace{-0.1em}+q^2}\label{eq:faz-a}\\
+&&\varphi'\equiv\frac{(1\hspace{-0.1em}+2\hspace{0.05em}q^2)\sin\hspace{-0.1em}\psi
+-q\cos\hspace{-0.1em}\psi}{\sqrt{1\hspace{-0.1em}+q^2}}\label{eq:faz-b}\\
+&&\varphi''\equiv\frac{q\hspace{0.1em}
+(3+2\hspace{0.05em}q^2)\sin\hspace{-0.1em}\psi
+-\cos\hspace{-0.1em}\psi}{(1\hspace{-0.1em}+q^2)^{3/2}}\label{eq:faz-c}
+\end{eqnarray}\end{subequations}
+%
+这里$\psi$重定义为
+%
+\begin{equation}\label{eq:psidef}
+  \tan\hspace{-0.1em}\psi\equiv\frac{y}{-x}
+\end{equation}
+%
+
+驻相点由$\varphi'=0\hspace{0.05em},$确定，即
+%
+\begin{equation}\label{eq:statfaz}
+(1\hspace{-0.1em}+2\hspace{0.1em}q^2)\tan\hspace{-0.1em}\psi-q=0
+\end{equation}
+%
+在开尔文锥形内，即$-\psi_K<\psi<\psi_K$，这里$\psi^K\approx19^\circ28'$，
+关系式\eqref{eq:statfaz}有两个不等的根$q^T$和$q^D$
+%
+ \begin{equation}\label{eq:qTD}
+ q^T\equiv\frac{1\hspace{-0.1em}-\sqrt{1\hspace{-0.1em}-8\tan^2\!\psi}}
+ {4\tan\hspace{-0.1em}\psi}
+ \hspace{0.5em}\mbox{和}\hspace{0.5em}
+ q^D\equiv\frac{1\hspace{-0.1em}+\sqrt{1\hspace{-0.1em}-8\tan^2\!\psi}}
+ {4\tan\hspace{-0.1em}\psi}
+ \end{equation}
+ %
+分别对应于横波和散波。
+在波峰尖顶角 (cusp lines) $\psi=\pm\hspace{0.05em}\psi_K,$ $q^T$和$q^D$相互重合
+%
+\begin{equation}\label{eq:qcusp}
+q^T\!=\pm\hspace{0.1em}q^C\hspace{0.5em}\mbox{和}\hspace{0.5em}
+q^D\!=\pm\hspace{0.1em}q^C\hspace{0.5em}\mbox{这里}\hspace{0.5em}
+q^C\hspace{-0.1em}\equiv1/\sqrt{2}\approx0.7
+\end{equation}
+%
+
+由\eqref{eq:faz-a}、\eqref{eq:faz-c}和\eqref{eq:qTD}得
+相位函数$\varphi$和二阶导数$\varphi''$在驻相点$q=q^D$处的值
+$\varphi^D$和$\varphi''_D$为
+%
+\begin{subequations}\label{eq:fazD}\begin{eqnarray}
+&&-\hspace{0.1em}\varphi^D\hspace{-0.1em}=\frac{3-\sqrt{1-8\tan^2\!\psi}}
+{8\hspace{0.1em}\sqrt{2}}\,
+\frac{\cos\hspace{-0.1em}\psi}{|\hspace{-0.1em}\tan\hspace{-0.1em}\psi\hspace{0.05em}|}
+\,\Delta^\psi\label{eq:fazD-a}\\
+&&\varphi''_D=2\hspace{0.1em}\sqrt{2}\,\sqrt{1\hspace{-0.1em}-8\tan^2\!\psi}\,
+|\hspace{-0.1em}\sin\hspace{-0.1em}\psi\hspace{0.05em}|\hspace{0.1em}/\Delta^\psi
+\label{eq:fazD-b}\\
+&&\mbox{这里}\hspace{0.5em}\Delta^\psi\equiv
+\sqrt{1\hspace{-0.1em}+4\tan^2\!\psi+\sqrt{1-8\tan^2\!\psi}}\label{eq:fazD-c}
+\end{eqnarray}\end{subequations}
+%
+类似的, $\varphi$和$\varphi''$在$q=q^T$的值$\varphi^T$和$\varphi''_T$为 
+%
+\begin{subequations}\label{eq:fazT}\begin{eqnarray}
+&&-\hspace{0.1em}\varphi^T\!=\frac{3+\sqrt{1-8\tan^2\!\psi}}
+{2\hspace{0.1em}\sqrt{2}\hspace{0.2em}\Delta^\psi}\label{eq:fazT-a}\\
+&&\varphi''_T=-\cos^2\!\psi\,
+\sqrt{\frac{1\hspace{-0.1em}-8\tan^2\!\psi}{2}}\,\Delta^\psi\label{eq:fazT-b}
+\end{eqnarray}\end{subequations}
+%
+式\eqref{eq:fazD-b}和\eqref{eq:fazT-b}表明$0\le\varphi''_D$和 
+$\varphi''_T\le0\hspace{0.05em}.$ 在波峰尖顶角$\psi=\pm\psi_K,$ 
+我们有$\tan^2\!\psi=1/8$，此时$\varphi''_D$和$\varphi''_T$为零。
+
+在远场$1\ll h\hspace{0.05em},$ 积分\eqref{eq:wavsum3}可以通过驻相法得到解析近似
+%
+\begin{subequations}\label{eq:ZTD}\begin{eqnarray}
+    &&\phi^W(\mathbf{x})\approx\sqrt{\frac{2\pi}{h}}
+\,\hspace{0.05em}
+(\hspace{0.05em}\phi^D\hspace{-0.1em}+\phi^T\hspace{0.05em})
+\hspace{0.5em}\mbox{这里}\label{eq:ZTD-a}\\
+&&\phi^D\equiv \frac{\hat{a}^D}
+{\sqrt{\varphi''_D}}
+\hspace{0.2em}e^{\hspace{0.1em}\mathrm{i}\hspace{0.1em}(h\hspace{0.1em}\varphi^D
++\hspace{0.1em}\pi/4)}\label{eq:ZTD-b}\\
+&&\phi^T\equiv \frac{\hat{a}^T}
+{\sqrt{-\varphi''_T}}
+\hspace{0.2em}e^{\hspace{0.1em}\mathrm{i}\hspace{0.1em}(h\hspace{0.1em}\varphi^T
+-\hspace{0.1em}\pi/4)}\label{eq:ZTD-c}
+\end{eqnarray}\end{subequations}
+%
+这里$\hat{a}^D$和$\hat{a}^T$是由\eqref{eq:aphiaz}定义的一般化的波幅函数$\hat{a}$
+在$q=q^D$或$q=q^T$处的值。渐近展开式\eqref{eq:ZTD}在波峰尖顶角附近无效，因为
+二阶导数$\varphi''_D$和$\varphi''_T$在此处为零。
+
+波峰线是相位的等值线，横波的波峰线是$h\varphi^T-\pi/4=\text{常数}$，散波的波峰
+线是$h\varphi^D+\pi/4=\text{常数}$。令该常数为$-2n\pi$，则得如下参数方程
+\begin{subequations}
+  \label{eq:wavpat}
+  \begin{eqnarray}
+     \xi_\pm&=&(2n\pi\pm\pi/4)\cos\psi/\varphi_\pm\label{eq:wavpat-a}\\
+    -\eta_\pm&=&(2n\pi\pm\pi/4)\sin\psi/\varphi_\pm\label{eq:wavpat-b}
+  \end{eqnarray}
+\end{subequations}
+这里$\varphi_+\equiv\varphi^D$，$\varphi_-\equiv\varphi^T$。
+
+$\bullet$插入开尔文波形图
