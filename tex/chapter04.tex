@@ -699,3 +699,73 @@ NM流动表达式\eqref{eq:NMrepresent}中涉及由Froude数$F$和船体形状�
 式\eqref{eq:hogner}称为Hogner近似，由\parencite{Hogner1932Hydromech}提出。
 
 
+式\eqref{eq:hogner}中的Green函数$G$可以表达成波浪成分$W$和不振荡的局部流动成分$L$
+之和。Green函数可以表示为
+\begin{equation}
+  G=W+L
+  \label{eq:gwl}
+\end{equation}
+其中波浪成分$W$可表示为
+\begin{equation}
+  W(\tilde{\mathbf{x}},\mathbf{x})=\frac{H(x-\tilde{x})}{\pi {{F}^{2}}}\mathrm{Im}\int_{-{{q}_{\infty }}}^{{{q}_{\infty }}}{\tilde{\Lambda }(q,\tilde{\mathbf{x}})\tilde{E}(q,\tilde{\mathbf{x}})E(q,\mathbf{x})}\,\mathrm{d}q
+  \label{eq:W}
+\end{equation}
+这里$H(\cdot)$是单位阶跃函数，$F$是弗洛德数，$\mathrm{Im}$表示取虚部， 
+$\tilde{E}\equiv\tilde{E}(q,\tilde{\mathbf{x}})$和$E\equiv E(q,\mathbf{x})$
+是基波函数
+\begin{equation}
+  &&\tilde{E}\equiv \mathrm{e}^{(1+q^2)\tilde{z}/F^2+\mathrm{i}\sqrt{1+q^2}(\tilde{x}+q\tilde{y})/F^2}\label{eq:Etilde}\\
+  && E\equiv \mathrm{e}^{(1+q^2)z/F^2-\mathrm{i}\sqrt{1+q^2}(x+qy)/F^2}
+  \label{eq:E}
+\end{equation}
+$q$代表波数。式\eqref{eq:W}中有限的积分限$\pm q_{\infty}$和函数$\tilde{\Lambda}(q,\tilde{\mathbf{x}})$用于过滤现实中不存在的短波\supercite{Noblesse2013Evaluation}。
+
+将式\eqref{eq:gwl}代入式\eqref{eq:hogner}，可知速度势$\tilde{\phi}$和流速
+$\tilde{\mathbf{u}}=\tilde{\nabla}\tilde{\phi}$也可以表示成波浪成分和局部流动成分
+之和
+\begin{equation}
+  \tilde{\phi}=\tilde{\phi}^W+\tilde{\phi}^L,\quad 
+  \tilde{\mathbf{u}}=\tilde{\mathbf{u}}^W+\tilde{\mathbf{u}}^L
+  \label{eq:phiuwl}
+\end{equation}
+正如前文所述，在远场$\tilde{\phi}^W$占主导作用，因此我们有$\tilde{\phi}\approx\tilde{\phi}^W$。在船后我们有$\tilde{x}<x$和$H(x-\tilde{x})=1$。
+由式\eqref{eq:W}和\eqref{eq:hogner}可得远场速度势的波浪成分
+\begin{equation}
+  \tilde{\phi}^W(\tilde{\mathbf{x}})=\frac{F^2}{\pi}\mathrm{Im}\int_{-q_{\infty}}^{q^{\infty}}\tilde{\Lambda}(q,\tilde{\mathbf{x}})A(q)\tilde{E}(q,\tilde{\mathbf{x}})
+  \,\mathrm{d}q
+  \label{eq:phiW}
+\end{equation}
+可见，$\tilde{\phi}^W$由一系列波幅为$A(q)$的基波
+$\tilde{E}\equiv\tilde{E}(q,\tilde{\mathbf{x}})$叠加而成。波幅$A(q)$为
+\begin{equation}
+  A(q)\equiv\frac{1}{F^4}\int_{\Sigma^H}n^x(\mathbf{x})E(q,\mathbf{x})
+  \,\mathrm{d}a(\mathbf{x})
+  \label{eq:Aq}
+\end{equation}
+由式\eqref{eq:phiW}和\eqref{eq:fselev}可得，自由面升高$z(\tilde{x},\tilde{y})$为
+\begin{equation}
+  z(\tilde{x},\tilde{y})=\frac{F^2}{\pi}\mathrm{Re}\int_{-q_{\infty}}^{q_{\infty}}
+  \tilde{\Lambda}\sqrt{1+q^2}A(q)\mathrm{e}^{\mathrm{i}\sqrt{1+q^2}(\tilde{x}+q\tilde{y})/F^2}\,\mathrm{d}q
+  \label{eq:fsheight}
+\end{equation}
+由式\eqref{eq:E}得
+\begin{equation}
+  E=\mathrm{e}^{(1+q^2)z/F^2}E_0,\quad\text{其中}\quad 
+  E_0=(C^x-\mathrm{i}S^x)(C^y-\mathrm{i}S^y)
+  \label{eq:Esincos}
+\end{equation}
+其中$C^x$，$S^x$，$C^y$，$S^y$为
+\begin{eqnarray}
+  &&C^x\equiv\cos\varphi^x,S^x\equiv\sin\varphi^x,\quad\text{其中}\quad
+  \varphi^x\equiv\sqrt{1+q^2}x/F^2 
+  \label{eq:CxSx}\\
+  &&C^y\equiv\cos\varphi^y,S^y\equiv\sin\varphi^y,\quad\text{其中}\quad
+  \varphi^y\equiv q\sqrt{1+q^2}y/F^2 
+  \label{eq:CySy}\\
+\end{eqnarray}
+对于一般左右对称的船体，源强$n^x$是纵坐标$\tilde{y}$的函数。
+由\eqref{eq:Aq}、\eqref{eq:CxSx}和\eqref{eq:CySy}得
+\begin{equation}
+  A\equiv\frac{2}{F^4}\int_{\Sigma_+^H}n^x\mathrm{e}^{(1+q^2)z/F^2}C^y(C^x-\mathrm{i}S^x)\,\mathrm{d}a
+  \label{eq:Asymmetry}
+\end{equation}
