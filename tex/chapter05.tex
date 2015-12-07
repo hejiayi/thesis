@@ -1,7 +1,58 @@
 %# -*- coding: utf-8-unix -*-
-\chapter{单体船窄V字形尾迹}
+\chapter{单体船的窄V字形尾迹}
 \label{chap:monohull}
 
-\section{主要兴波角的实用计算}
-\label{sec:psimaxdeterm}
+本章考虑在无限深广的静水中匀速直线航行的单体船的窄V字形尾迹。
+船体周围的流场以分布在船体表面的点源产生的流场表示，而不是简化为位于船首区域
+的一个点源和位于船尾区域的一个点汇。单体船Kelvin波系中波高最大的波浪所处的射线
+与航迹的夹角，即主要兴波角$\psi_{\max}$，通过一种实际的数值方法确定。
+这种数值方法只涉及初等运算，因此能够被简单有效地应用。这种方法随后被用于对主尺度
+范围广泛的七艘船分别在十个Froude数情况下进行系统的数值计算。
+数值研究表明，船体形状的变化对主要兴波角$\psi_{\max}$的影响很弱。
+一个有用的实际结果是，一般单体船的主要兴波角$\psi_{\max}$均可通过简单的解析式确定。
+这些解析式为主要兴波角$\psi_{\max}(F)$提供了相对精确的实用估计（无需计算）。
+这些主要兴波角$\psi_{\max}(F)$的实用解析式同时考虑了首尾散波系的纵向干涉效应和
+由左右舷侧产生的波浪的横向干涉效应。因此，由此得到的主要兴波角的解析式比
+两点兴波模型\supercite{Noblesse2014Why}的预测更加精确。
+
+\section{主要兴波角的确定}
+\label{sec:psimaxcalc}
+
+由第\ref{chap:fsG}章的结果可知，只考虑速度势的波浪成分可将船后的波浪势
+$\tilde{\phi}^W$写成如下Fourier-Kochin表达式
+\begin{equation}
+  \tilde{\phi}^W(\tilde{\mathbf{x}})=\frac{F^2}{\pi}\mathrm{Im}
+  \int_{-\infty}^{\infty}
+  A(q)\tilde{E}(q,\tilde{\mathbf{x}})\,\mathrm{d}q
+  \label{eq:fkrepresent}
+\end{equation}
+其中基波$\tilde{E}(q,\tilde{\mathbf{x}})$由\eqref{eq:Etilde}给出，
+波幅$A(q)$由\eqref{eq:Asymmetry}给出。这里已经忽略式\eqref{eq:phiW}中的
+短波过滤函数$\tilde{\Lambda}(q,\tilde{\mathbf{x}})$，并将积分上下限由
+$\pm q_{\infty}$改为$\pm\infty$。
+同样处理式\eqref{eq:fsheight}可得自由面升高
+\begin{equation}
+  z(\tilde{x},\tilde{y})=\frac{F^2}{\pi}\mathrm{Re}\int_{-\infty}^{\infty}
+  \sqrt{1+q^2}A(q)\mathrm{e}^{\mathrm{i}\sqrt{1+q^2}(\tilde{x}+q\tilde{y})/F^2}
+  \,\mathrm{d}q
+  \label{eq:freesurfelev}
+\end{equation}
+
+式\eqref{eq:freesurfelev}可以改写成下式
+\begin{equation}
+  \frac{Zg}{V^2}=\frac{1}{\pi}\mathrm{Re}\int_{-\infty}^{\infty}
+  \sqrt{1+q^2}A\mathrm{e}^{\mathrm{i}h\varphi}\,\mathrm{d}q
+  \label{eq:ZgV2}
+\end{equation}
+这里$h$是以速度无因次化的距离
+\begin{eqnarray}
+  && h\equiv Hg/V^2\equiv \sqrt{\xi^2+\eta^2}\label{eq:h}\\
+  && (\xi,\eta)\equiv (\tilde{x},\tilde{y})/F^2\equiv(\tilde{X},\tilde{Y})g/V^2
+  \label{eq:xieta}
+\end{eqnarray}
+$A$由式\eqref{eq:Asymmetry}定义。相位函数$\varphi$和它的一阶导数
+$\varphi'\equiv\mathrm{d}\varphi/\mathrm{d}q$、二阶导数$\varphi''\equiv\mathrm{d}^2\varphi/\mathrm{d}q^2$由式\eqref{eq:faz}定义。在远场$1\ll h$，积分\eqref{eq:ZgV2}
+可由第\ref{chap:shipwav}章介绍的驻相法得到解析近似
+
+
 
