@@ -53,6 +53,56 @@ $\pm q_{\infty}$改为$\pm\infty$。
 $A$由式\eqref{eq:Asymmetry}定义。相位函数$\varphi$和它的一阶导数
 $\varphi'\equiv\mathrm{d}\varphi/\mathrm{d}q$、二阶导数$\varphi''\equiv\mathrm{d}^2\varphi/\mathrm{d}q^2$由式\eqref{eq:faz}定义。在远场$1\ll h$，积分\eqref{eq:ZgV2}
 可由第\ref{chap:shipwav}章介绍的驻相法得到解析近似
+\begin{eqnarray}
+  &&\frac{Zg}{V^2}\approx\sqrt{\frac{2/\pi}{h}}\mathrm{Im}(e^D+e^T)\quad\text{其中}
+  \label{eq:ZgV2stat}\\
+  &&e^D\equiv A^D\sqrt{\frac{1+(q^D)^2}{\varphi''_D}}\mathrm{e}^{\mathrm{i}h\varphi^D+\pi/4}\label{eq:eD}\\
+  &&e^T\equiv A^T\sqrt{\frac{1+(q^T)^2}{-\varphi''_T}}\mathrm{e}^{\mathrm{i}h\varphi^T-\pi/4}\label{eq:eT}
+\end{eqnarray}
+这里$q^D$和$q^T$由式\eqref{eq:qTD}定义，$A^D$和$A^T$是波幅函数$A$在
+$q=q^D$和$q=q^T$处的值。渐近近似\eqref{eq:ZgV2stat}在Kelvin臂附近无效，
+因为在Kelvin臂二阶导数$\varphi''_D$和$\varphi''_T$为零，正如第\ref{chap:shipwav}
+章所述和众所周知的。此后忽略远场驻相法近似\eqref{eq:ZgV2stat}中的横波$e^T$，
+因为在高Froude数情况下，除非在Kelvin臂$\psi=\pm\psi^K$附近，散波占支配地位。
+而正如前面指出的，主要兴波角$\psi_{\max}$显著小于Kelvin角$\psi^K$，
+因此这种简化是合理的。在Kelvin臂附近时，横波的重要性增加，更准确的分析需要考虑横波。
+
+图\ref{fig:psimaxmonohull}描画了由型宽$b=0.15$型深$d=0.05$的简单船体
+\begin{equation}
+  y=\pm\frac{b}{2}(1-16x^4)\left(1-\frac{z^2}{d^2}\right)
+  \label{eq:simphull}
+\end{equation}
+在六个Froude数$F=$0.65，0.7，0.9，1.1，1.3和1.5时
+产生的散波的波幅函数$\zeta^D\equiv\sqrt{2/\pi}F^2|e^D|$，即
+\begin{equation}
+  \zeta^D\equiv\sqrt{2/\pi}F^2|A^D|\sqrt{[1+(q^D)^2]/\varphi''_D}
+  \label{eq:zetaD}
+\end{equation}
+%
+\begin{figure}[htp]
+  \centering
+  \captionstyle{\centering}
+  \includegraphics[width=0.8\textwidth]{chap5/amplfunc.pdf}
+  \bicaption[fig:psimaxmonohull]{单体船散波的波幅函数}
+  {船体\eqref{eq:simphull}在$0.65\le F\le 1.5$范围内六个Froude数情况下产生的散波的
+  波幅函数$\zeta^D$，由式?定义，通过Hogner近似计算}{Fig}
+  {Amplitude $\zeta^D$ of the divergent waves, defined by \eqref{eq:zetaD}, 
+  created by the hull ? and predicted by the Hogner approximation, 
+  for $2^\circ30'\le\psi<19^\circ28'$ and six Froude numbers $F$ within the range 
+$0.65 \le F \le 1.5$}
+\end{figure}
+
+最大波高的波浪所在的射线角$\psi=\psi_{\max}$由波幅函数\eqref{eq:zetaD}
+的最高峰确定。此最高峰也是最靠近Kelvin臂的`第一峰'，在图\ref{fig:psimaxmonohull}
+由一个点和一根竖虚线表示。正如已经指出的，二阶导数$\varphi''_D$在Kelvin臂
+$\psi\approx19^\circ28'$为零，此时函数\eqref{eq:zetaD}是无界的。
+图\ref{fig:psimaxmonohull}表明通过波幅函数最高峰的位置确定的主要兴波角
+$\psi_{\max}$不受函数\eqref{eq:zetaD}在Kelvin臂的弱奇异性的明显影响，
+除非可能对$F=0.65$。图\ref{fig:psimaxmonohull}还表明$F\ge0.9$时第一峰锐利，
+并显著高于所有其他峰，但在$F\le0.7$时第一峰较宽，并且高出其他峰不多。
+
+\section{数值计算}
+\label{sec:numcomput}
 
 
 
