@@ -67,7 +67,7 @@ $q=q^D$和$q=q^T$处的值。渐近近似\eqref{eq:ZgV2stat}在Kelvin臂附近�
 而正如前面指出的，主要兴波角$\psi_{\max}$显著小于Kelvin角$\psi^K$，
 因此这种简化是合理的。在Kelvin臂附近时，横波的重要性增加，更准确的分析需要考虑横波。
 
-图\ref{fig:psimaxmonohull}描画了由型宽$b=0.15$型深$d=0.05$的简单船体
+图\ref{fig:amplfunc}描画了由型宽$b=0.15$型深$d=0.05$的简单船体
 \begin{equation}
   y=\pm\frac{b}{2}(1-16x^4)\left(1-\frac{z^2}{d^2}\right)
   \label{eq:simphull}
@@ -83,7 +83,7 @@ $q=q^D$和$q=q^T$处的值。渐近近似\eqref{eq:ZgV2stat}在Kelvin臂附近�
   \centering
   \captionstyle{\centering}
   \includegraphics[width=0.8\textwidth]{chap5/amplfunc.pdf}
-  \bicaption[fig:psimaxmonohull]{单体船散波的波幅函数}
+  \bicaption[fig:amplfunc]{单体船散波的波幅函数}
   {船体\eqref{eq:simphull}在$0.65\le F\le 1.5$范围内六个Froude数情况下产生的散波的
   波幅函数$\zeta^D$，由式?定义，通过Hogner近似计算}{Fig}
   {Amplitude $\zeta^D$ of the divergent waves, defined by \eqref{eq:zetaD}, 
@@ -93,16 +93,160 @@ $0.65 \le F \le 1.5$}
 \end{figure}
 
 最大波高的波浪所在的射线角$\psi=\psi_{\max}$由波幅函数\eqref{eq:zetaD}
-的最高峰确定。此最高峰也是最靠近Kelvin臂的`第一峰'，在图\ref{fig:psimaxmonohull}
+的最高峰确定。此最高峰也是最靠近Kelvin臂的`第一峰'，在图\ref{fig:amplfunc}
 由一个点和一根竖虚线表示。正如已经指出的，二阶导数$\varphi''_D$在Kelvin臂
 $\psi\approx19^\circ28'$为零，此时函数\eqref{eq:zetaD}是无界的。
-图\ref{fig:psimaxmonohull}表明通过波幅函数最高峰的位置确定的主要兴波角
+图\ref{fig:amplfunc}表明通过波幅函数最高峰的位置确定的主要兴波角
 $\psi_{\max}$不受函数\eqref{eq:zetaD}在Kelvin臂的弱奇异性的明显影响，
-除非可能对$F=0.65$。图\ref{fig:psimaxmonohull}还表明$F\ge0.9$时第一峰锐利，
+除非可能对$F=0.65$。图\ref{fig:amplfunc}还表明$F\ge0.9$时第一峰锐利，
 并显著高于所有其他峰，但在$F\le0.7$时第一峰较宽，并且高出其他峰不多。
 
 \section{数值计算}
 \label{sec:numcomput}
 
+现在考虑由七艘船产生的散波的波幅函数\eqref{eq:zetaD}。其中三艘船定义为
+\begin{equation}
+  y=\pm\frac{b}{2}[1-(2x)^{2n}]\left(1-\frac{z^2}{d^2}\right)
+  \label{eq:sevenhull}
+\end{equation}
+其中$(b,d)=(0.15,0.05)$，$n=1$，2，3。与$n=1$，2，3对应的水线进流角$2\alpha$
+约为$33^\circ$，$62^\circ$，$84^\circ$，这三艘船因此分别被称作``锐船''，``中等船''，
+和``钝船''。其余四艘船也由式\eqref{eq:sevenhull}定义，其中$n=2$，型宽
+$b$和吃水$d$选择为
+\begin{equation}
+  (b,d)=(0.1,0.1),(0.15,0.075),(0.2,0.05),(0.25,0.025)
+  \label{eq:bd4hull}
+\end{equation}
+这四艘船的型宽船长比和吃水船长比在广阔的范围内$0.1\le b\le0.25$
+和$0.025\le d\le0.1$变化，对应的宽度吃水比为1，2，4和10。四艘船的水线进流角$2\alpha$
+为：当$b=0.1$时约为$44^\circ$，当$b=0.15$时约为$62^\circ$，当$b=0.2$时约为
+$77^\circ$，当$b=0.25$时约为$90^\circ$。计算中考虑的七艘船的型宽船长比$B/L$，
+吃水船长比$D/L$，宽度吃水比$B/D$和水线进流角$2\alpha$列于表\ref{tab:7hull}中。
+表\ref{tab:7hull}表明七艘船对应的主要船体形状参数在广阔的范围内变化
+  \begin{equation}
+    \label{eq:shaparam}
+  \left.
+  \begin{array}{l}
+  0.1\le\frac{B}{L}\le0.25,\quad 0.025\le\frac{D}{L}\le 0.1,\\
+  1\le\frac{B}{D}\le10,\quad 33^\circ\le2\alpha\le90^\circ
+  \end{array}
+  \right.
+  \end{equation}
+\begin{table}
+  \centering
+  \begin{minipage}[b]{0.6\textwidth}
+    \captionstyle{\centering}
+  \bicaption[tab:7hull]{七艘单体船的主要船体形状参数}
+  {计算中考虑的七艘船的主要船体形状参数}{Table}
+  {Main hull-shape parameters associated with the seven hulls considered in the
+  computations}
+\end{minipage}
+  \begin{tabular*}{0.8\textwidth}{@{\extracolsep{\fill}}llrll@{}} \toprule
+    $B/L$ & $D/L$ & $B/D$ & $n$ & $2\alpha$ \\ \midrule
+    0.15 & 0.05 & 3 & 1 & $33^\circ24'$ \\
+    0.15 & 0.05 & 3 & 2 & $61^\circ55'$ \\
+    0.15 & 0.05 & 3 & 3 & $83^\circ59'$ \\
+    0.1  & 0.1  & 1 & 2 & $43^\circ36'$ \\
+    0.15 & 0.075& 2 & 2 & $61^\circ55'$ \\
+    0.2  & 0.05 & 4 & 2 & $77^\circ19'$ \\
+    0.25 & 0.025&10 & 2 & $90^\circ$ \\ \bottomrule
+  \end{tabular*}
+\end{table}
 
+图\ref{fig:psimaxmonohull}展示了七艘船在十个Froude数$F\approx0.65$和
+$F=0.7$，0.8，$\cdots$，1.5时的主要兴波角$\psi_{\max}$，
+由波幅函数\eqref{eq:zetaD}中第一峰的位置确定。
+图\ref{fig:psimaxmonohull}表明，船体形状对主要兴波角$\psi_{\max}$的影响不大。
+%
+\begin{figure}[htp]
+  \centering
+  \captionstyle{\centering}
+  \includegraphics[width=0.8\textwidth]{chap5/psi_max.pdf}
+  \bicaption[fig:psimaxmonohull]{单体船的主要兴波角}
+  {七艘船在Froude数范围$0.6<F\le1.5$的主要兴波角$\psi_{\max}$，
+  由波幅函数\eqref{eq:zetaD}中第一峰的位置确定}{Fig}
+  {Apparent wake angle $\psi_{\max}$, determined numerically from the first peak
+  of the amplitude function \eqref{eq:zetaD} computed via the Hogner approximation,
+for seven hulls and ten Froude numbers within the range $0.6<F<1.5$}
+\end{figure}
+
+两点兴波模型中，基于首尾散波系的相干干涉预报的单体船的主要兴波角的表达式
+\eqref{eq:psixmax}中$\ell$代表实效船首和实效船尾的实效间距，近似取$\ell=0.9$。
+现在通过数值确定的主要兴波角$\psi_{\max}$可以确定实效间距$\ell_e$的大小，即
+\begin{eqnarray}
+  \ell_e=6.28F^2\tan\psi_{\max}
+  \label{eq:elle}
+\end{eqnarray}
+数值确定的七艘船体在十个Froude数情况下的$\ell_e$的值在图\ref{fig:elleff}中展示。
+图\ref{fig:elleff}表明通过式\eqref{eq:elle}得出的实效间距$\ell_e$受船体形状变化
+的影响显著，而图\ref{fig:psimaxmonohull}表明主要兴波角$\psi_{\max}$受船体形状
+变化的影响很弱，如上所述。因此通过对图\ref{fig:elleff}中$\ell_e$的数值结果进行
+粗略的拟合，就足以得到主要兴波角$\psi_{\max}$的实用近似。这里使用
+\begin{subequations}\label{eq:ellfit}
+\begin{eqnarray}
+  \ell_e\approx0.725\quad\text{当}F\le0.85 \label{eq:ell-a}\\
+  \ell_e\approx0.3+0.5F\quad\text{当}F\ge0.85 \label{eq:ell-b}
+\end{eqnarray}
+\end{subequations}
+来拟合$\ell_e$. 图\ref{fig:elleff}表明如果拟合中考虑主要的船体形状参数---
+特别是型宽船长比---对实效间距$\ell_e$的影响可使$\psi_{\max}$的拟合更加精确。
+然而如上所述，船体形状的变化对$\psi_{\max}$的影响很弱，因此$\ell_e$拟合
+精度的提高可能对提高$\psi_{\max}$近似精度的作用不大。因此从这个角度看，
+用式\eqref{eq:ell-a}和\eqref{eq:ell-b}来拟合$\ell_e$是足够精确的。
+%
+\begin{figure}[htp]
+  \centering
+  \captionstyle{\centering}
+  \includegraphics[width=0.8\textwidth]{chap5/l_e.pdf}
+  \bicaption[fig:elleff]{实效间距$\ell_e$}
+  {式\eqref{eq:elle}定义的与单体船首波系和尾波系的纵向干涉相联系的
+  实效间距$\ell_e$。式\eqref{eq:elle}中，$\psi_{\max}$为数值确定的
+  七艘船在Froude数范围$0.6<F\le1.5$的主要兴波角$\psi_{\max}$}{Fig}
+  {Values of the effective length $\ell_e$ in the relation \eqref{eq:elle},
+  associated with longitudinal interference between the dominant waves created 
+  by a ship bow and stern, that correspond to the values of $\psi_{\max}$
+  computed via the Hogner approximation and depicted in 
+  Fig.\eqref{fig:psimaxmonohull} for seven hulls and ten Froude numbers $F$
+within the range $0.6 < F \le 1.5$}
+\end{figure}
+%
+
+由式\eqref{eq:ell-b}可知当$F\ge1.4$时$\ell_e\ge1$，图\ref{fig:elleff}也表明
+有些数值计算得出$\ell$确实超过了1。这个结果看上去令人惊讶
+（实效船首和实效船尾间距不应该超过船长），实际上正表明了单体船的波系并不像
+式\eqref{eq:elle}假设的和\parencite{Noblesse2014Why}考虑的那样仅仅受首尾两点
+兴波干涉的影响，同样也受横向干涉的影响。图\ref{fig:elleff}和式\eqref{eq:ell-b}
+表明，横向干涉的影响随弗洛德数$F$的增大而增大。
+
+将实效间距$\ell_e$的表达式\eqref{eq:ellfit}代入式\eqref{eq:psixmax}中，
+可得主要兴波角$\psi_{\max}$的近似
+\begin{subequations}
+  \label{eq:psimaxfit}
+  \begin{eqnarray}
+    &&\tan\psi_{\max}\approx 0.116/F^2\quad\text{当}F\le0.85
+    \label{eq:psimaxfit-a}\\
+    &&\tan\psi_{\max}\approx 0.08(1+0.6/F)/F\quad\text{当}F\ge0.85
+    \label{eq:psimaxfit-b}
+  \end{eqnarray}
+\end{subequations}
+由式\eqref{eq:psimaxfit-a}-\eqref{eq:psimaxfit-b}表示的主要兴波角
+$\psi_{\max}$的拟合结果在图\ref{fig:psimaxmonohull}中用实线表示。
+由两点兴波模型预测的解析近似$\psii^x_{\max}$，由\eqref{eq:psixmax}给出，
+也在图中展示。图\ref{fig:elleff}表明，式\eqref{eq:psimaxfit-a}-
+\eqref{eq:psimaxfit-b}给出的简单近似$\psi_{\max}(F)$与七艘船体形状参数
+范围广泛的单体船在十个Froude数情况下的数值计算结果吻合较好。
+
+图?展示了船体\eqref{eq:simphull}在$F=0.65$，0.8，1和1.4四个Froude数情况下
+产生的在平面$(x,y)\equiv(X,Y)/L$范围内
+\begin{eqnarray*}
+  &&(-9\le x\le 1,-3\le y\le3)\quad\text{当}F=0.65\\
+  &&(-14\le x\le1,-4\le y\le4)\quad\text{当}F=0.8\text{和}F=1\\
+  &&(-19\le x\le1,-6\le y\le6)\quad\text{当}F=1.4
+\end{eqnarray*}
+的自由面升高$Z/L$。图?四中各波形的上半部分或下半部分代表由Hogner近似
+\supercite{Hogner1932Hydromech}或NM理论\supercite{Noblesse2014Why}计算的波形。
+从图?可见，两种计算方法得到的波形是一致的。从图?以及
+\parencite{Noblesse2013Neumann,Huang2013Numerical}报告的多艘船在一系列Froude数
+情况下的升沉、纵倾、阻力和船体表面波形的试验结果、Hogner近似计算结果和
+NM理论计算结果之间的对比表明，Hogner近似是符合实际的。
 
