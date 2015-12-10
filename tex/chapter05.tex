@@ -236,17 +236,60 @@ $\psi_{\max}$的拟合结果在图\ref{fig:psimaxmonohull}中用实线表示。
 \eqref{eq:psimaxfit-b}给出的简单近似$\psi_{\max}(F)$与七艘船体形状参数
 范围广泛的单体船在十个Froude数情况下的数值计算结果吻合较好。
 
-图?展示了船体\eqref{eq:simphull}在$F=0.65$，0.8，1和1.4四个Froude数情况下
-产生的在平面$(x,y)\equiv(X,Y)/L$范围内
+图\ref{fig:wavpatn}展示了船体\eqref{eq:simphull}在$F=0.65$，0.8，1和1.4四个
+Froude数情况下产生的在平面$(x,y)\equiv(X,Y)/L$范围内
 \begin{eqnarray*}
   &&(-9\le x\le 1,-3\le y\le3)\quad\text{当}F=0.65\\
   &&(-14\le x\le1,-4\le y\le4)\quad\text{当}F=0.8\text{和}F=1\\
   &&(-19\le x\le1,-6\le y\le6)\quad\text{当}F=1.4
 \end{eqnarray*}
-的自由面升高$Z/L$。图?四中各波形的上半部分或下半部分代表由Hogner近似
+的自由面升高$Z/L$。图\ref{fig:wavpatn}中各波形的上半部分或下半部分代表由Hogner近似
 \supercite{Hogner1932Hydromech}或NM理论\supercite{Noblesse2014Why}计算的波形。
-从图?可见，两种计算方法得到的波形是一致的。从图?以及
+从图\ref{fig:wavpatn}可见，两种计算方法得到的波形是一致的。从图\ref{fig:wavpatn}以及
 \parencite{Noblesse2013Neumann,Huang2013Numerical}报告的多艘船在一系列Froude数
 情况下的升沉、纵倾、阻力和船体表面波形的试验结果、Hogner近似计算结果和
 NM理论计算结果之间的对比表明，Hogner近似是符合实际的。
+%
+\begin{figure}[htp]
+  \centering
+  \captionstyle{\centering}
+  \includegraphics[height=4.3cm]{chap5/065.png}
+  \includegraphics[height=4.3cm]{chap5/08.png}
+  \includegraphics[height=4.3cm]{chap5/14.png}
+  \includegraphics[height=4.3cm]{chap5/10.png}
+  \bicaption[fig:wavpatn]{单体船波形图}
+  {船体\eqref{eq:simphull}在$F=0.65$、0.8、1和1.4四个Froude数情况下产生的
+自由面升高，各波形的上半部分或下半部分由Hogner近似或NM理论计算得出}
+{Fig}{Free-surface elevation $Z/L$ for the hull defined by \eqref{eq:simphull} 
+at four Froude numbers $F = 0.65$, 0.8, 1 and 1.4. The upper and lower halves 
+of the wave patterns are computed via the Hogner approximation or the 
+more precise Neumann–Michell theory}
+\end{figure}
+
+图\ref{fig:wavpatn}还描画了从船首$(0.5,0)$出发的三种射线。这三种射线分别为
+Kelvin臂$\psi=\pm\psi^K\approx19^\circ28'$，
+$\psi=\pm\psi^x_{\max}$（黑色实线），由式\eqref{eq:psixmax}定义，
+由基于首尾散波系干涉效应的两点兴波模型\supercite{Noblesse2014Why}得出，
+以及$\psi=\pm\psi_{\max}$（粉色实线），
+由式\eqref{eq:psimaxfit-a}-\eqref{eq:psimaxfit-b}定义，通过数值确定基于Hogner近似
+的散波的波幅函数\eqref{eq:zetaD}的第一峰的位置得到。图\ref{fig:wavpatn}表明，
+对于$F=1$和$F=1.4$的情况，由高度简化的模型预测的射线$\psi=\pm\psi^x_{\max}$
+和这里通过数值方法获得的$\psi=\pm\psi_{\max}$相差不大。
+事实上，图\ref{fig:psimaxmonohull}表明当$F\ge1$时两种方法获得的主要兴波角
+之间的差异不超过$1^\circ$。然而在$0.6\le F\le1$时，两种方法间差异很大。
+图\ref{fig:wavpatn}还表明在$F=0.65$、0.8和1时，由式\eqref{eq:psimaxfit-a}-
+\eqref{eq:psimaxfit-b}定义的射线$\psi=\pm\psi_{\max}$位于两点兴波模型得到的
+射线$\psi=\pm\psi^x_{\max}$以内，而在$F=1.4$时则相反。
+
+如图\ref{fig:amplfunc}所示，波幅函数\eqref{eq:zetaD}的第一峰在高Froude数
+$F\ge0.9$时是尖的，并且显著高于其他峰，但在低Froude数$F=0.7$和$F=0.65$时
+是宽的，并且高出其他峰不多。相应地，图\ref{fig:wavpatn}的波形图显示，
+在$F=1.4$和$F=1$时，$\psi=\psi_{\max}$附近狭窄的楔状带内波高显著，
+而在$F=0.8$和$F=0.65$时，$\psi=\psi_{\max}$附近相对广泛的区域波高显著。
+结果意味着，实际观测到船的主要兴波角$\psi_{\max}$在Froude数小于1时
+可能比较分散。图\ref{fig:wavpatn}展示的波形与图\ref{fig:amplfunc}展示的
+波幅函数\eqref{eq:zetaD}是一致的，正如预期地。
+
+\section{讨论}
+\label{sec:discuz}
 
