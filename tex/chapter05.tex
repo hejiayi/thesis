@@ -4,16 +4,7 @@
 
 本章考虑在无限深广的静水中匀速直线航行的单体船的窄V字形尾迹。
 船体周围的流场以分布在船体表面的点源产生的流场表示，而不是简化为位于船首区域
-的一个点源和位于船尾区域的一个点汇。单体船Kelvin波系中波高最大的波浪所处的射线
-与航迹的夹角，即主要兴波角$\psi_{\max}$，通过一种实际的数值方法确定。
-这种数值方法只涉及初等运算，因此能够被简单有效地应用。这种方法随后被用于对主尺度
-范围广泛的七艘船分别在十个Froude数情况下进行系统的数值计算。
-数值研究表明，船体形状的变化对主要兴波角$\psi_{\max}$的影响很弱。
-一个有用的实际结果是，一般单体船的主要兴波角$\psi_{\max}$均可通过简单的解析式确定。
-这些解析式为主要兴波角$\psi_{\max}(F)$提供了相对精确的实用估计（无需计算）。
-这些主要兴波角$\psi_{\max}(F)$的实用解析式同时考虑了首尾散波系的纵向干涉效应和
-由左右舷侧产生的波浪的横向干涉效应。因此，由此得到的主要兴波角的解析式比
-两点兴波模型\supercite{Noblesse2014Why}的预测更加精确。
+的一个点源和位于船尾区域的一个点汇。
 
 \section{主要兴波角的确定}
 \label{sec:psimaxcalc}
@@ -292,4 +283,98 @@ $F\ge0.9$时是尖的，并且显著高于其他峰，但在低Froude数$F=0.7$�
 
 \section{讨论}
 \label{sec:discuz}
+
+本章提出了确定任意船体Kelvin波系中波高最大的波浪的射线角与航迹的夹角---主要兴波角
+$\psi_{\max}$---的实用方法。该方法只涉及初等运算，可以简单、有效地执行。
+具体来说，该方法需要计算由船体表面$\Sigma^H_+$基波\eqref{eq:E}的分布
+\eqref{eq:Asymmetry}定义的波幅函数$A$。此方法可以被应用于任意形状的实际船体
+（包括多体船）和自由表面压力分布。
+因此，该方法比考虑轴对称或椭圆形高斯压力分布更加通用。
+此方法密切仿效\parencite{Barnell1986Far}，
+并且是在船舶水动力学文献中众所周知的基本结论特别是自由表面格林函数的波浪成分
+\supercite{Noblesse1981Alternative}
+的直接应用。
+
+本章报告的七艘船的计算结果表明单体船的远场波系受分布在船首和船尾区域的
+源汇兴波的纵向干涉的显著影响，同时也受到分布于左舷侧和右舷侧区域的源汇兴波的
+横向干涉的影响。因此单体船散波间的干涉效应貌似复杂。
+
+两点兴波模型\supercite{Noblesse2014Why}和这里的计算结果表明单体船的兴波特征可以
+分为两大区域。当Froude数$F\le F_K$其中$F_K\approx0.6$时，横波系的干涉效应占优势，
+因此波高最大的波浪的射线角与航迹的夹角可以用Kelvin角近似，即
+$\psi_{\max}\approx\psi^K$。然而在高Froude数$F>F_K$时散波系的干涉效应占优势。
+此外，``散波干涉制''$F>F_K$又可细分为三个区域$F_K<F<F_X$，$F_X<F<F_Y$，以及
+$F>F_Y$，其中$F_X\apporx0.85$，$F_Y\gg1$。
+
+单体船首尾散波系的纵向干涉在``低速''区域$F_K<F<F_X$占优势，此时主要兴波角
+$\psi_{max}$随Froude数以$1/F^2$形式衰减。在``高速''区域$F>F_Y$左右舷侧产生的
+散波系的横线干涉占优势，此时$\psi_{\max}$随Froud数按照$1/F$的形式衰减。
+这里的计算结果显示，``纵向干涉制''$F_K<F<F_X$和``横向干涉制''$F>F_Y$之间的
+过渡是逐步地而非突然地，并且发生在广泛的Froude数区间$F_X<F<F_Y$。
+
+绝大多数排水型船符合``低速横波干涉制''$F\le F_K\approx0.6$或``低速散波干涉制''
+$F_K\le F\le F_X\approx0.85$。这两个区域主要受
+船体首尾区域产生的横波或散波的纵向干涉效应的影响。这两个区域的实用近似为
+\begin{subequations}
+\begin{equation}
+  \psi_{\max}\approx\psi^K\approx19^\circ28'\quad\text{当}F\le0.573
+  \label{eq:transregime}
+\end{equation}
+和$\tan\psi_{\max}\approx0.16\ell_e/F^2$当$F_K\le F\le F_X$。
+图\ref{fig:elleff}展示的实效间距$\ell_e$的数值预测表明，$\ell_e$应该小于
+\parencite{Noblesse2014Why}的建议值$\ell_e=0.9$。图\ref{fig:elleff}表明
+$\ell_e=0.725$是一个更精确的选择。这个选择给出了以下实用近似
+\begin{equation}
+  \psi_{\max}\approx\arctan(0.116/F^2)\quad\text{当}0.573\le F\le0.85
+  \label{eq:divlongintrfregime}
+\end{equation}
+在``高速散波干涉制''$F\ge F_X$这里的数值计算给出实用近似
+\begin{equation}
+  \psi_{\max}\approx\arctan[0.08(1+0.6/F)/F]\quad\text{当}F\ge 0.85
+  \label{eq:divlatintrfregime}
+\end{equation}
+由式\eqref{eq:divlongintrfregime}可知
+\begin{equation}
+  \psi_{max}\approx\arctan(0.08/F)\quad\text{当}F>6
+  \label{eq:veryhigh}
+\end{equation}
+\end{subequations}
+此``超高速''近似与\eqref{eq:psiymax}给出的两点兴波横向干涉结果
+$\tan\psi^y_{\max}\approx 0.2\sqrt{b_e}/F$---其中实效型宽$b_e=0.16$---一致。
+此区域只出现在超高Froude数情况下，在实际上无法存在，因为$F_Y\approx6$以及超出
+线性势流理论的应用范畴。
+
+图\ref{fig:elleff}表明，``纵向干涉关系''$\tan\psi_{\max}\approx0.16\ell_e/F^2$
+中实效船首与实效船尾间的实效间距$\ell_e$关于船体形状的变化很大。
+然而，图\ref{fig:psimaxmonohull}表明主要兴波角$\psi_{\max}$受船体形状的影响很弱。
+事实上，由式\eqref{eq:transregime}-\eqref{eq:divlatintrfregime}给出的实用估计与
+主要船体形状参数（长宽比、吃水船长比、宽度吃水比、水线进流角）范围广泛
+的七艘船体的数值计算得出的主要兴波角$\psi_{\max}$吻合较好。
+此外，即使通过两点兴波模型\supercite{Noblesse2014Why}给出的
+基于首尾波系纵向干涉效应的解析近似\eqref{eq:psixmax}也是实际的，尽管
+不如式\eqref{eq:transregime}-\eqref{eq:divlatintrfregime}精确，正如我们预期的。
+因此表达式\eqref{eq:transregime}-\eqref{eq:divlatintrfregime}提供了估计
+一般单体船主要兴波角$\psi_{\max}$的实用估计。
+
+\section{本章小结}
+
+本章考虑在无限深广的静水中匀速直线航行的单体船的窄V字形尾迹。
+船体周围的流场以分布在船体表面的点源产生的流场表示，而不是简化为位于船首区域
+的一个点源和位于船尾区域的一个点汇。
+单体船Kelvin波系中波高最大的波浪所处的射线与航迹的夹角，即主要兴波角
+$\psi_{\max}$，通过一种实际的数值方法确定。
+这种数值方法只涉及初等运算，因此能够被简单有效地应用。这种方法随后被用于对主尺度
+范围广泛的七艘船分别在十个Froude数情况下进行系统的数值计算。
+数值研究表明，船体形状的变化对主要兴波角$\psi_{\max}$的影响很弱。
+一个有用的实际结果是，一般单体船的主要兴波角$\psi_{\max}$均可通过简单的解析式确定。
+这些解析式为主要兴波角$\psi_{\max}(F)$---由式\eqref{eq:transregime}-
+\eqref{eq:divlatintrfregime}给出---提供了相对精确的实用估计（无需计算）。
+这些主要兴波角$\psi_{\max}(F)$的实用解析式同时考虑了首尾散波系的纵向干涉效应和
+由左右舷侧产生的波浪的横向干涉效应。不出所料地，由此得到的主要兴波角的解析式比
+两点兴波模型\supercite{Noblesse2014Why}的预测更加精确。
+本章提出的主要兴波角$\psi_{\max}$的计算方法可以被轻而易举地应用于双体船。
+第\ref{chap:catamaran}章将考虑双体船Kelvin波系中波高最大的波浪的射线角，
+即双体船的主要兴波角。
+
+
 
